@@ -58,7 +58,7 @@ sub_df.groupby(['pclass', 'sex']).survived.count()
 sub_df.groupby(['pclass', 'sex']).survived.mean()
 
 # 16
-age_flag_series = titanic_df['age'].apply(lambda x: 1.3 if (x < 30) else 0)
+age_flag_series = titanic_df['age'].apply(lambda x: 1 if (x < 30) else 0)
 titanic_df['age_flag'] = age_flag_series
 
 # 17
@@ -100,11 +100,4 @@ tips_df.groupby(['sex', 'total_bill_flag'])['total_bill'].count()
 
 # 25
 first_30_df = tips_df.sort_values('total_bill_tip_sum', ascending=False).head(30)
-
-
-
-
-
-
-
 
