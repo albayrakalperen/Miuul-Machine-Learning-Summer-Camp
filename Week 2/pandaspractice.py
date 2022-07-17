@@ -77,11 +77,7 @@ tips_df.groupby(['day', 'time']).total_bill.mean()
 
 # 20
 lunch_female_df = tips_df.query('time == "Lunch" & sex == "Female"')
-lunch_female_df[['day', 'total_bill', 'tip']].groupby('day').sum()
-lunch_female_df[['day', 'total_bill', 'tip']].groupby('day').min()
-lunch_female_df[['day', 'total_bill', 'tip']].groupby('day').max()
-lunch_female_df[['day', 'total_bill', 'tip']].groupby('day').mean()
-
+lunch_female_df.groupby('day').agg({'total_bill': ['sum', 'min', 'max', 'mean'], 'tip': ['sum', 'min', 'max', 'mean'] })
 # 21
 tips_df.query('size < 3 & total_bill > 10').loc[:, 'total_bill'].mean()
 
