@@ -24,6 +24,8 @@ print(titanic_df[['pclass', 'parch']].nunique())
 
 # 6
 print(titanic_df['embarked'].dtype)
+titanic_df['embarked'] = titanic_df['embarked'].astype('category')
+print(titanic_df['embarked'].dtype)
 
 # 7
 print(titanic_df[titanic_df['embarked'] == 'C'])
@@ -35,7 +37,7 @@ print(titanic_df[titanic_df['embarked'] != 'S'])
 print(titanic_df.query('(age < 30) & (sex == "female")'))
 
 # 10
-print(titanic_df.query('(fare > 500) & (age > 70)'))
+print(titanic_df.query('(fare > 500) | (age > 70)'))
 
 # 11
 print(titanic_df.isnull().sum())
