@@ -70,10 +70,7 @@ tips_df = sns.load_dataset("tips")
 tips_df.groupby('time').agg({'total_bill': ['sum', 'min', 'max', 'mean']})
 
 # 19
-tips_df.groupby(['day', 'time']).total_bill.sum()
-tips_df.groupby(['day', 'time']).total_bill.min()
-tips_df.groupby(['day', 'time']).total_bill.max()
-tips_df.groupby(['day', 'time']).total_bill.mean()
+tips_df.groupby(['day', 'time']).agg({'total_bill': ['sum', 'min', 'max', 'mean']})
 
 # 20
 lunch_female_df = tips_df.query('time == "Lunch" & sex == "Female"')
