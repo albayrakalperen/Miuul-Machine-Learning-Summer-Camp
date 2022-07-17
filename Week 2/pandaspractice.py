@@ -67,10 +67,7 @@ titanic_df['age_flag'] = age_flag_series
 tips_df = sns.load_dataset("tips")
 
 # 18
-tips_df.groupby('time')['total_bill'].sum()
-tips_df.groupby('time')['total_bill'].min()
-tips_df.groupby('time')['total_bill'].max()
-tips_df.groupby('time')['total_bill'].mean()
+tips_df.groupby('time').agg({'total_bill': ['sum', 'min', 'max', 'mean']})
 
 # 19
 tips_df.groupby(['day', 'time']).total_bill.sum()
